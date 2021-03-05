@@ -1,0 +1,22 @@
+-- Esta tabla se crea para actualizar pagos mediante TRIGGERS -- 
+	create table historialPagosE (
+	fecha date,
+	cedula_clientepk int,
+	descripcion varchar(30),
+	usuario varchar(80));
+	select * from historialPagosE;
+
+	-- ACTUALIZAR PAGO --
+	create trigger TR_PagoActualizado 
+	on descrpagoE for update 
+	as
+	set nocount on
+	declare @cedula_clientepk int
+	select @cedula_clientepk = cedula_clientepk  from inserted
+	insert into historialPagosE values(GETDATE(),@cedula_clientepk,
+	'Pago Actualizado',SYSTEM_USER)
+	go
+	update descrpagoE set total = 10.50, descripcion ='Paga' where 
+	cedula_clientepk = 131345677
+	select * from historialPagosE
+	select * from descrpagoE
