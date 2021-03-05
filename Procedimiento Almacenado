@@ -1,0 +1,15 @@
+-- PROCEDIMIENTO ALMACENADO --
+	create procedure deudores3
+			 @cedula_cliente int,
+			 @nombres char(60),
+			 @numero_medidor char(12),
+			 @consumo_a char(12),
+			 @mes char(10),
+			 @descripcion char(10),
+			 @total char(10)
+	as
+	select cli.cedula_cliente,cli.nombres,M.numero_medidorpk,M.consumo_a,descripcion,total,j.nombre_mes
+	from clientesE cli inner join ConsumodeAgua M on  cli.cedula_cliente = M.cedula_clientepk 
+	inner join mesE  j on j.id_mes = M.id_mespk where descripcion = 'Adeuda'
+	go
+	exec deudores3
