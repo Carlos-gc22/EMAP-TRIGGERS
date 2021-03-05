@@ -1,0 +1,30 @@
+-- CURSOR --
+	declare  @cedula_cliente char(30),
+			 @nombres char(60),
+			 @numero_medidor char(12),
+			 @consumo_agua char(12),
+			 @mes char(10),
+			 @descripcion char(10),
+			 @total char(10)
+	declare cursor8 cursor 
+	for select cli.cedula_cliente,cli.nombres,M.numero_medidorpk,M.consumo_agua,j.nombre_mes,descripcion,total
+	from clientesE cli inner join ConsumodeAgua M on  cli.cedula_cliente = M.cedula_clientepk 
+	inner join mesE  j on j.id_mes = cli.cedula_cliente
+	open cursor8
+	fetch cursor8 into @cedula_cliente,
+					   @nombres,@apellidos,
+					   @numero_medidor,
+					   @consumo_agua
+	print 'cedula_cliente  nombres  apellidos  numero_medidor  consumo_agua'
+	print'------------------------------------------------------------------'
+	while @@FETCH_STATUS=0
+		begin
+		print @cedula_cliente+ '' +@nombres+ '' +@apellidos+ '' +@numero_medidor+ '' +@consumo_agua
+		fetch cursor8 into @cedula_cliente,
+					       @nombres,
+					       @apellidos,
+					       @numero_medidor,
+					       @consumo_agua
+		end
+	close cursor8
+	deallocate cursor8
