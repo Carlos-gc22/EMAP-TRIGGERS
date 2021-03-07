@@ -1,5 +1,5 @@
 -- PROCEDIMIENTO ALMACENADO --
-	create procedure deudores3
+	create procedure deudores5
 			 @cedula_cliente int,
 			 @nombres char(60),
 			 @numero_medidor char(12),
