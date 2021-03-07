@@ -12,4 +12,4 @@
 	from clientesE cli inner join ConsumodeAgua M on  cli.cedula_cliente = M.cedula_clientepk 
 	inner join mesE  j on j.id_mes = M.id_mespk where descripcion = 'Adeuda'
 	go
-	exec deudores3
+	deudores5 132161091,'Derian Martín',0033,'234m3','Adeuda',21.04,'Febrero'
