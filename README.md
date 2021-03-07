@@ -241,7 +241,7 @@ create database Empresa_Agua_Potable;
 	select * from ConsumodeAgua
 
 	-- PROCEDIMIENTO ALMACENADO --
-	create procedure deudores3
+	create procedure deudores5
 			 @cedula_cliente int,
 			 @nombres char(60),
 			 @numero_medidor char(12),
@@ -254,4 +254,4 @@ create database Empresa_Agua_Potable;
 	from clientesE cli inner join ConsumodeAgua M on  cli.cedula_cliente = M.cedula_clientepk 
 	inner join mesE  j on j.id_mes = M.id_mespk where descripcion = 'Adeuda'
 	go
-	exec deudores3
+deudores5 132161091,'Derian Martín',0033,'234m3','Adeuda',21.04,'Febrero'
