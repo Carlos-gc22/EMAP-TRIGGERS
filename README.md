@@ -241,18 +241,12 @@ create database Empresa_Agua_Potable;
 	select * from ConsumodeAgua
 
 	-- PROCEDIMIENTO ALMACENADO --
-	create procedure consumo
-			 @cedula_cliente int,
-			 @nombres char(60),
-			 @numero_medidor char(12),
-			 @consumo_a char(12),
-			 @mes char(10),
-			 @descripcion char(10),
-			 @total char(10)
+	create procedure consumo1
+			 @cedula_cliente char (30)	
 	as
 	select cli.cedula_cliente,cli.nombres,M.numero_medidorpk,M.consumo_a,descripcion,total,j.nombre_mes
 	from clientesE cli inner join ConsumodeAgua M on  cli.cedula_cliente = M.cedula_clientepk 
 	inner join mesE  j on j.id_mes = M.id_mespk where cedula_cliente like '%77' and consumo_a >='300m3';
 	go
-	consumo 131345677,'Luis',01,'456m3','Adeuda',120.45,'Febrero'
+	exec consumo1 '131345677'
 
