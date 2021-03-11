@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report3" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d6d46f64-3b02-4622-929d-01025e6dad91">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<subDataset name="dataset1" uuid="fb4b4a6e-9132-4c03-b0f1-a110c6d855cd"/>
+	<queryString>
+		<![CDATA[SELECT
+     descrpagoE."id_pago" AS descrpagoE_id_pago,
+     descrpagoE."montopago" AS descrpagoE_montopago,
+     descrpagoE."descripcion" AS descrpagoE_descripcion,
+     descrpagoE."total" AS descrpagoE_total,
+     descrpagoE."cedula_clientepk" AS descrpagoE_cedula_clientepk,
+     descrpagoE."id_mespk" AS descrpagoE_id_mespk,
+     mesE."id_mes" AS mesE_id_mes,
+     mesE."nombre_mes" AS mesE_nombre_mes,
+     mesE."año" AS mesE_año,
+     clientesE."cedula_cliente" AS clientesE_cedula_cliente,
+     clientesE."nombres" AS clientesE_nombres,
+     clientesE."apellidos" AS clientesE_apellidos,
+     clientesE."telefono" AS clientesE_telefono,
+     clientesE."sector_vive" AS clientesE_sector_vive,
+     clientesE."tiene_convenio" AS clientesE_tiene_convenio
+FROM
+     "dbo"."mesE" mesE INNER JOIN "dbo"."descrpagoE" descrpagoE ON mesE."id_mes" = descrpagoE."id_mespk"
+     INNER JOIN "dbo"."clientesE" clientesE ON descrpagoE."cedula_clientepk" = clientesE."cedula_cliente"]]>
+	</queryString>
+	<field name="descrpagoE_id_pago" class="java.lang.Integer"/>
+	<field name="descrpagoE_montopago" class="java.math.BigDecimal"/>
+	<field name="descrpagoE_descripcion" class="java.lang.String"/>
+	<field name="descrpagoE_total" class="java.math.BigDecimal"/>
+	<field name="descrpagoE_cedula_clientepk" class="java.lang.Integer"/>
+	<field name="descrpagoE_id_mespk" class="java.lang.Integer"/>
+	<field name="mesE_id_mes" class="java.lang.Integer"/>
+	<field name="mesE_nombre_mes" class="java.lang.String"/>
+	<field name="mesE_año" class="java.lang.String"/>
+	<field name="clientesE_cedula_cliente" class="java.lang.Integer"/>
+	<field name="clientesE_nombres" class="java.lang.String"/>
+	<field name="clientesE_apellidos" class="java.lang.String"/>
+	<field name="clientesE_telefono" class="java.lang.Integer"/>
+	<field name="clientesE_sector_vive" class="java.lang.String"/>
+	<field name="clientesE_tiene_convenio" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch">
+			<staticText>
+				<reportElement x="132" y="12" width="233" height="23" uuid="af3cd372-a54c-4010-9da0-09c2dd601ca6"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi" size="16"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCIÓN PAGO CLIENTES]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="43">
+			<staticText>
+				<reportElement x="0" y="10" width="53" height="20" uuid="bea7767a-d311-4dde-b041-cafbcebd6429"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[ID_PAGO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="68" y="10" width="48" height="20" uuid="8ed29216-0c6c-455c-9521-1e6d615b5ab9"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[CEDULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="132" y="10" width="51" height="20" uuid="f357b7f8-c1a9-43d0-9a76-70309922f1ab"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[NOMBRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="202" y="10" width="58" height="20" uuid="fb644828-edcd-44b2-8634-aebc1e17818c"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[APELLIDOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="277" y="10" width="43" height="20" uuid="c00e86bc-5ff2-4cc8-bc92-89816dd38e9f"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[MONTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="335" y="10" width="66" height="20" uuid="6197bced-6a26-49d5-b6dc-4c23f4925131"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[DESCRIPCION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="418" y="10" width="33" height="20" uuid="69fbb03d-dd20-4a3b-b619-8e4c9d56f5c8"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="469" y="10" width="29" height="20" uuid="edf86ba4-770d-4154-b0d6-9e54e109c64d"/>
+				<textElement>
+					<font fontName="Berlin Sans FB Demi"/>
+				</textElement>
+				<text><![CDATA[MES]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="53" height="20" uuid="4a0a5f8d-c29d-44c2-83bf-7c9a33fd90d6"/>
+				<textFieldExpression><![CDATA[$F{descrpagoE_id_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="68" y="0" width="48" height="20" uuid="285bece0-a2de-4afd-82da-8fded9a509bb"/>
+				<textFieldExpression><![CDATA[$F{descrpagoE_cedula_clientepk}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="132" y="0" width="51" height="20" uuid="692b81d0-93cd-4509-87e7-8259e726227d"/>
+				<textFieldExpression><![CDATA[$F{clientesE_nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="202" y="0" width="58" height="20" uuid="fe77b290-14a4-49c4-95d3-204327f39074"/>
+				<textFieldExpression><![CDATA[$F{clientesE_apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="277" y="0" width="43" height="20" uuid="8bdcdfa0-8d7c-4578-8a5d-73a9f11c6bd8"/>
+				<textFieldExpression><![CDATA[$F{descrpagoE_montopago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="335" y="0" width="66" height="20" uuid="72fae6eb-c319-4db4-90cd-db6366fc1500"/>
+				<textFieldExpression><![CDATA[$F{descrpagoE_descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="418" y="0" width="33" height="20" uuid="8ef53b57-f915-400d-a00e-f13ce91abb72"/>
+				<textFieldExpression><![CDATA[$F{descrpagoE_total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="469" y="0" width="29" height="20" uuid="00f4593a-3102-4f75-ad53-3a2cda7f058f"/>
+				<textFieldExpression><![CDATA[$F{mesE_nombre_mes}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="42" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="40" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="36" splitType="Stretch"/>
+	</summary>
+</jasperReport>
